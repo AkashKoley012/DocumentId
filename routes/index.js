@@ -12,9 +12,9 @@ var upload = multer({ storage: storage });
 
 router.post("/uploads", upload.single("document"), async (req, res, next) => {
   var src = `./public/images/${req.file.filename}`;
-  var [panId, aadharId] = await card(src);
-  if (panId !== null) return res.status(200).json({ panId: panId[0] });
-  if (aadharId !== null) return res.status(200).json({ aadharId: aadharId[0] });
+  // var [panId, aadharId] = await card(src);
+  // if (panId !== null) return res.status(200).json({ panId: panId[0] });
+  // if (aadharId !== null) return res.status(200).json({ aadharId: aadharId[0] });
   return res.status(404).json({ error: "Try another image" });
 });
 
